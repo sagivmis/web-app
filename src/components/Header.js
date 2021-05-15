@@ -2,6 +2,7 @@ import Button from "./Button";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { BrowserRouter as Route } from "react-router-dom";
+import Logo from "./Logo";
 
 const Header = ({ title, addProduct, showAdd }) => {
   const location = useLocation();
@@ -11,6 +12,7 @@ const Header = ({ title, addProduct, showAdd }) => {
   };
   return (
     <header className="header">
+      {/* <Logo /> */}
       {location.pathname === "/cart" && <h1 className="home-label">CART</h1>}
       {location.pathname === "/home" && (
         <h1 className="cart home-label">HOME</h1>

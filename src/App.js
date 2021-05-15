@@ -10,6 +10,7 @@ import Stats from "./components/Stats";
 import Cart from "./components/Cart";
 import axios from "axios";
 import NavBar from "./components/NavBar";
+import Logo from "./components/Logo";
 
 function App() {
   const [showAddProduct, setShowAddProduct] = useState(false);
@@ -205,6 +206,9 @@ function App() {
   return (
     <Router>
       <div className="container">
+        <div className="logo">
+          <Logo />
+        </div>
         <div className="navbar">
           <NavBar />
         </div>

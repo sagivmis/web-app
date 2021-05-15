@@ -27,9 +27,9 @@ const NavBar = () => {
       {/* {location.pathname !== "/about" && location.pathname !== "/cart" && (
         <Button text={"Cart"} onClick={linkCart} color="#51a7e0" />
       )} */}
-      {location.pathname === "/cart" && (
+      {/* {location.pathname === "/cart" && (
         <Button text={"Buy"} onClick={linkBuy} color="#51a7e0" />
-      )}
+      )} */}
       {/* <p></p> */}
       {location.pathname !== "/about" && (
         <Button text={"About"} onClick={linkAbout} color={"#217dbb"} />
@@ -47,7 +47,7 @@ const NavBar = () => {
           <Button text={"Admin"} onClick={linkAdmin} color={"#8ac4ea"} />
         )}
       {/* <p></p> */}
-      {location.pathname !== "/about" && (
+      {location.pathname !== "/about" && location.pathname !== "/stats" && (
         <Button text={"Stats"} onClick={linkStats} color={"#8ac4ea"} />
       )}
     </div>

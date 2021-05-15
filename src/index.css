@@ -334,6 +334,9 @@ body {
 .thin {
   font-weight: 200;
 }
+.logo {
+  margin-bottom: 15px;
+}
 
 /* h1 {
   //color: #d04764; 
