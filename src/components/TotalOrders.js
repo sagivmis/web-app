@@ -1,0 +1,18 @@
+import React from "react";
+
+const TotalOrders = ({ orders }) => {
+  const calcTotal = (orders) => {
+    const total = orders.reduce((acc, order) => {
+      return order.total + acc;
+    }, 0);
+    return total;
+  };
+  return (
+    <div className="hovered">
+      <h1 className="rightened">TOTAL:</h1>
+      <p className="rightened total-int">{calcTotal(orders)}$</p>
+    </div>
+  );
+};
+
+export default TotalOrders;
