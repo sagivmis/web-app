@@ -1,6 +1,7 @@
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridProduct from "./GridProduct";
+import Prods from "./Prods";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Home = ({ ...props }) => {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <Grid container spacing={1}>
@@ -29,9 +29,23 @@ const Home = ({ ...props }) => {
                 `Can't delete products from this page. Please if you have relevant permission refer to 'Admin' page`
               );
             }}
+            addQuantity={props.addQuantity}
+            lowerQuantity={props.lowerQuantity}
+            updateProds={props.updateProds}
           />
         ))}
       </Grid>
+      {/* <Prods
+        onToggle={props.onToggle}
+        showDesc={props.showDesc}
+        onDelete={() => {
+          alert(
+            `Can't delete products from this page. Please if you have relevant permission refer to 'Admin' page`
+          );
+        }}
+        addQuantity={props.addQuantity}
+        lowerQuantity={props.lowerQuantity}
+      /> */}
     </div>
   );
 };

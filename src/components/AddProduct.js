@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-const AddProduct = ({ onAdd }) => {
+const AddProduct = ({ onAdd, updateProds, products }) => {
   const [text, setText] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
   const reminder = false;
+
+  const _onAdd = (newProd) => {
+    fetch("http://localhost:8000/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProd),
+    }).then(updateProds);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -14,9 +22,19 @@ const AddProduct = ({ onAdd }) => {
       alert("please add a product");
       return;
     }
-
-    onAdd({ text, price, description, url, reminder });
-
+    const newProd = {
+      id: products.length + 1,
+      text: text,
+      price: price,
+      description: description,
+      show_description: false,
+      image: true,
+      reminder: false,
+      url: url,
+      quantity: 1,
+    };
+    // onAdd({ text, price, description, url, reminder });
+    _onAdd(newProd);
     setText("");
     setPrice("");
     setDescription("");

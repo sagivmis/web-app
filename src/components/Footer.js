@@ -2,27 +2,24 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
-const Footer = ({ showAdd, addOrder }) => {
-  const [day, setDay] = useState("");
-  const [time, setTime] = useState("");
-  const [id, setID] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [total, setTotal] = useState("");
+import { IDAStarFinder } from "pathfinding";
+import Products from "./Products";
+const Footer = ({
+  showAdd,
+  updateProds,
+  orders,
+  products,
+  calcTotal,
+  updateOrders,
+}) => {
+  // const [day, setDay] = useState("");
+  // const [time, setTime] = useState("");
+  // const [id, setID] = useState("");
+  // const [quantity, setQuantity] = useState("");
+  // const [total, setTotal] = useState("");
 
   const history = useHistory();
-  const onSubmit = (e) => {
-    e.preventDefault();
-    let date = new Date();
-    let day = date.getDay();
-    let time = `${date.getHours()}${date.getMinutes}`;
 
-    if (false) {
-      alert("please add a product");
-      return;
-    }
-
-    addOrder({ day, time, quantity, total });
-  };
   const linkAbout = () => {
     history.push("/about");
   };
@@ -38,6 +35,52 @@ const Footer = ({ showAdd, addOrder }) => {
   const linkCart = () => {
     history.push("/cart");
   };
+
+  const _onAdd = (newOrder) => {
+    fetch("http://localhost:8000/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newOrder),
+    }).then(updateProds);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (false) {
+      alert("please add a product");
+      return;
+    }
+    // const ids = products.map((product) => {
+    //   product.reminder ? product : "";
+    // });
+    let ids = [];
+    let quantity = [];
+    products.map((product) => {
+      if (product.reminder) {
+        ids.push(product.id);
+        quantity.push(product.quantity);
+      }
+    });
+    console.log(`ids: ${ids}`);
+    let d = new Date();
+    const date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`;
+
+    console.log(`date: ${date}`);
+    const newOrder = {
+      id: orders.length + 1,
+      date: date, //implemet date
+      total: calcTotal(products),
+      item_ids: ids,
+      quantity: quantity,
+    };
+
+    console.log(newOrder);
+    // onAdd({ text, price, description, url, reminder });
+    _onAdd(newOrder);
+    updateOrders();
+  };
+
   const linkBuy = () => {};
   const location = useLocation();
   return (
@@ -48,24 +91,28 @@ const Footer = ({ showAdd, addOrder }) => {
           to cart
         </p>
       )}
-
+      {/* {location.pathname === "/home" && (
+        <Button
+          text={"Update Products"}
+          onClick={updateProds}
+          color="#51a7ee"
+        />
+      )} */}
       {location.pathname !== "/about" && location.pathname !== "/cart" && (
         <Button text={"Cart"} onClick={linkCart} color="#51a7e0" />
       )}
       {location.pathname === "/cart" && (
-        <Button text={"Buy"} onClick={linkBuy} color="#51a7e0" />
+        <Button text={"Buy"} onClick={onSubmit} color="#51a7e0" />
       )}
-      <p></p>
+      {/* <p></p>
       {location.pathname !== "/about" && (
         <Button text={"About"} onClick={linkAbout} color={"#217dbb"} />
       )}
 
-      {/* <p></p> */}
       {location.pathname !== "/home" && (
         <Button text="Home" onClick={linkHome} color="#6eb5e5" />
       )}
 
-      {/* <p></p> */}
       {location.pathname !== "/" &&
         location.pathname !== "/about" &&
         location.pathname !== "/cart" && (
@@ -74,7 +121,7 @@ const Footer = ({ showAdd, addOrder }) => {
       <p></p>
       {location.pathname !== "/about" && (
         <Button text={"Stats"} onClick={linkStats} color={"#8ac4ea"} />
-      )}
+      )} */}
       <p>Copyright &copy; 2021</p>
     </footer>
   );

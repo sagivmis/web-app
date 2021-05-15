@@ -17,6 +17,24 @@ body {
   left: -240px;
   /* Move this out to the left of the site body, leaving a 20px gutter */
 }
+.navbar {
+  max-width: 750px;
+  position: relative;
+  align-content: center;
+  text-align: center;
+  background-color: #175681;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+.navbar:hover {
+  filter: brightness(1.03);
+  margin-bottom: 10px;
+  transition: all 1s;
+}
+.navbar::after {
+  margin-bottom: 15px;
+  transition: all 1s;
+}
 .container {
   position: relative;
   max-width: 750px;
@@ -96,12 +114,7 @@ body {
   width: 100%;
   background-color: #6eb5e5;
 }
-.centered {
-  height: 100vh; /* Magic here */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .product {
   background: #f4f4f4;
   margin: 5px;
@@ -165,7 +178,7 @@ body {
 }
 .home-label {
   position: relative;
-  left: 41%;
+  left: 300px;
   font-weight: lighter;
 }
 .total-label {
@@ -252,9 +265,76 @@ body {
   cursor: pointer;
   size: 1px;
 }
+.centered {
+  /* height: 10vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sold-label {
+  margin-bottom: 20px;
+}
+.right-corner {
+  display: flex;
+  position: absolute;
+  right: 50px;
+  /* padding-left: 30%; */
+  /* margin-left: 170px;
+  padding-right: -20px; */
+}
+/* .right-corner:hover {
+  color: #87b5ff;
+  transition: all 1s;
+} */
+.rightened {
+  position: relative fixed;
+  margin-left: 10%;
+}
+.total-int {
+  margin-left: 55%;
+  /* bottom: 330px; */
+}
+.left-corner {
+  display: flex;
+  position: absolute;
+  left: 50px;
+}
+.hovered {
+  position: absolute;
+  right: 36px;
+  width: 150px;
+}
+.hovered:hover {
+  color: #b6daf2;
+  background-color: #175681;
+  border-radius: 15px;
+  transition: ease-out 0.5s;
+}
+.hovered::after {
+  transition: opacity 0.8s ease;
+  opacity: 0;
+}
+.price-order {
+  /* margin-right: 10px; */
+  margin-left: 270px;
+}
 .hidden {
   opacity: 0;
 }
+.modal {
+  position: flex;
+  margin-left: 180px;
+}
+.modal:hover {
+  /* background-color: black; */
+}
+.bold {
+  font-weight: 600;
+}
+.thin {
+  font-weight: 200;
+}
+
 /* h1 {
   //color: #d04764; 
   font-family: "Lobster", cursive;

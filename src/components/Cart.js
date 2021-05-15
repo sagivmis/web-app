@@ -1,11 +1,12 @@
 import Product from "./Product";
 import Total from "./Total";
-const Cart = ({ products, onDelete, onToggle, showDesc }) => {
+const Cart = ({ products, onDelete, onToggle, showDesc, calcTotal }) => {
   return (
     <div className="cart">
       {products.map(
         (product) =>
-          product.reminder === true && (
+          product.reminder === true &&
+          product.quantity >= 1 && (
             <Product
               key={product.id}
               product={product}
@@ -16,7 +17,7 @@ const Cart = ({ products, onDelete, onToggle, showDesc }) => {
           )
       )}
       <h1 className="total-label">TOTAL:</h1>
-      <Total products={products} />
+      <Total products={products} calcTotal={calcTotal} />
     </div>
   );
 };

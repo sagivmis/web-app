@@ -1,6 +1,14 @@
 import Product from "./Product";
 
-const Products = ({ products, onDelete, onToggle, showDesc }) => {
+const Products = ({
+  products,
+  onDelete,
+  onToggle,
+  showDesc,
+  updateProds,
+  ProdsContext,
+}) => {
+  // console.log(products);
   return (
     <>
       {products.map((product) => (
@@ -10,6 +18,8 @@ const Products = ({ products, onDelete, onToggle, showDesc }) => {
           onDelete={onDelete}
           onToggle={onToggle}
           showDesc={showDesc}
+          updateProds={updateProds}
+          ProdsContext={ProdsContext}
         />
       ))}
     </>

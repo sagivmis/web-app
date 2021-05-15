@@ -20,8 +20,15 @@ const styles = StyleSheet.create({
     height: 58,
   },
 });
-const GridProduct = ({ product, onToggle, showDesc, onDelete }) => {
-
+const GridProduct = ({
+  product,
+  onToggle,
+  showDesc,
+  onDelete,
+  addQuantity,
+  lowerQuantity,
+  updateProds,
+}) => {
   return (
     <div>
       <Grid item>
@@ -50,7 +57,13 @@ const GridProduct = ({ product, onToggle, showDesc, onDelete }) => {
             }}
           />
 
-          <Counter className="counter" />
+          <Counter
+            className="counter"
+            addQuantity={addQuantity}
+            product={product}
+            lowerQuantity={lowerQuantity}
+            updateProds={updateProds}
+          />
         </div>
       </Grid>
     </div>

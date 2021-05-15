@@ -1,9 +1,17 @@
 import Order from "./Order";
-const Orders = ({ order, onDelete, onToggle, showTotal }) => {
+const Orders = ({ ...props }) => {
   return (
-    <div>
-      <Order />
-    </div>
+    <>
+      {props.orders.map((order) => (
+        <Order
+          key={order.id}
+          order={order}
+          updateOrders={props.updateOrders}
+          products={props.products}
+        />
+      ))}
+      <div className="total-orders"></div>
+    </>
   );
 };
 
