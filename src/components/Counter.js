@@ -14,7 +14,7 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
   // const { fetchProducts } = React.useContext(ProdsContext);
 
   const updateProduct = async (product) => {
-    await fetch(`http://localhost:8000/products/${product.id}`, {
+    await fetch(`https://fastserver-sm.herokuapp.com/products/${product.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

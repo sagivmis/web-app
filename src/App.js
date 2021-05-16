@@ -114,7 +114,7 @@ function App() {
     const id = products.length + 1;
     const newProduct = { id, ...product };
     axios
-      .post("http://localhost:8000/products", {
+      .post("https://fastserver-sm.herokuapp.com/products", {
         id: id,
         text: product.text,
         price: product.price,
@@ -151,7 +151,7 @@ function App() {
   //update products
   const updateProds = () => {
     axios
-      .get("http://localhost:8000/products")
+      .get("https://fastserver-sm.herokuapp.com/products")
       .then((response) => {
         setProducts(response.data.data);
       })
@@ -162,7 +162,7 @@ function App() {
 
   const updateOrders = () => {
     axios
-      .get("http://localhost:8000/orders")
+      .get("https://fastserver-sm.herokuapp.com/orders")
       .then((response) => {
         setOrders(response.data.data);
       })
@@ -177,7 +177,7 @@ function App() {
   });
   const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:8000/products");
+    const res = await fetch("https://fastserver-sm.herokuapp.com/products");
     const products = await res.json();
     setProducts(products.data);
   };
@@ -192,7 +192,7 @@ function App() {
   });
   const [orders, setOrders] = useState([]);
   const fetchOrders = async () => {
-    const res = await fetch("http://localhost:8000/orders");
+    const res = await fetch("https://fastserver-sm.herokuapp.com/orders");
     const orders = await res.json();
     setOrders(orders.data);
   };

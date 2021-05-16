@@ -4,6 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Button from "./Button";
+import ItemSold from "./ItemSold";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -44,7 +45,7 @@ const MostSold = ({ orders, products }) => {
       });
     });
   });
-  console.log(products_sold);
+  // console.log(products_sold);
   function Item(name, id, number_sold = 0) {
     //before first sell
     this.name = name;
@@ -61,6 +62,7 @@ const MostSold = ({ orders, products }) => {
   items.sort((first, second) => {
     return second.number_sold - first.number_sold;
   });
+  let count = 0;
   return (
     <div className="modal">
       <div className="">
@@ -72,8 +74,6 @@ const MostSold = ({ orders, products }) => {
         />
       </div>
       <Modal
-        // aria-labelledby="transition-modal-title"
-        // aria-describedby="transition-modal-description"
         className={classes.modal}
         open={open}
         onClose={handleClose}
@@ -90,17 +90,16 @@ const MostSold = ({ orders, products }) => {
               className="centered sold-label"
             >{`Most Sold Items`}</h2>
             <div className="centered">
-              <p id="transition-modal-description">
-                <p className="bold">{`No. #1: ${items[0].name}`}</p>
-                <p className="thin">{`No. sold: ${items[0].number_sold}`}</p>
+              <div id="transition-modal-description">
+                {items.map((item) =>
+                  count++ < 3 ? (
+                    <ItemSold item={item} key={item.id} number={count} />
+                  ) : (
+                    ""
+                  )
+                )}
                 <br></br>
-                <p className="bold">{`No. #2: ${items[1].name}`}</p>
-                <p className="thin">{`No. sold: ${items[1].number_sold}`}</p>
-                <br></br>
-                <p className="bold">{`No. #3: ${items[2].name}`}</p>
-                <p className="thin">{`No. sold: ${items[2].number_sold}`}</p>
-                <br></br>
-              </p>
+              </div>
             </div>
           </div>
         </Fade>

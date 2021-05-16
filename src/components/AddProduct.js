@@ -8,7 +8,7 @@ const AddProduct = ({ onAdd, updateProds, products }) => {
   const reminder = false;
 
   const _onAdd = (newProd) => {
-    fetch("http://localhost:8000/products", {
+    fetch("https://fastserver-sm.herokuapp.com/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProd),
@@ -33,6 +33,7 @@ const AddProduct = ({ onAdd, updateProds, products }) => {
       url: url,
       quantity: 1,
     };
+    console.log(newProd);
     // onAdd({ text, price, description, url, reminder });
     _onAdd(newProd);
     setText("");

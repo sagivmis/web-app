@@ -37,7 +37,7 @@ const Footer = ({
   };
 
   const _onAdd = (newOrder) => {
-    fetch("http://localhost:8000/orders", {
+    fetch("https://fastserver-sm.herokuapp.com/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newOrder),

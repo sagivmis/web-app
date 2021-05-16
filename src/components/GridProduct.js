@@ -4,6 +4,8 @@ import Button from "./Button";
 import Product from "./Product";
 import Counter from "./Counter";
 import axios from "axios";
+import ReactImageZoom from "react-image-zoom";
+import { propNames } from "@chakra-ui/styled-system";
 
 const styles = StyleSheet.create({
   container: {
@@ -29,6 +31,12 @@ const GridProduct = ({
   lowerQuantity,
   updateProds,
 }) => {
+  let props = {
+    width: "inherit",
+    height: "inherit",
+    zoomWidth: 500,
+    img: product.url,
+  };
   return (
     <div>
       <Grid item>

@@ -35,17 +35,6 @@ const Home = ({ ...props }) => {
           />
         ))}
       </Grid>
-      {/* <Prods
-        onToggle={props.onToggle}
-        showDesc={props.showDesc}
-        onDelete={() => {
-          alert(
-            `Can't delete products from this page. Please if you have relevant permission refer to 'Admin' page`
-          );
-        }}
-        addQuantity={props.addQuantity}
-        lowerQuantity={props.lowerQuantity}
-      /> */}
     </div>
   );
 };

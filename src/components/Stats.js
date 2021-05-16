@@ -2,7 +2,7 @@ import MostSold from "./MostSold";
 import Orders from "./Orders";
 import TotalOrders from "./TotalOrders";
 const Stats = ({ ...props }) => {
-  console.log(props.orders);
+  // console.log(props.orders);
   return (
     <div>
       <Orders
