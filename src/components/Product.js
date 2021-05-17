@@ -1,10 +1,7 @@
-import { FaTimes } from "react-icons/fa";
 import Price from "./Price";
 import Description from "./Description";
 import { useLocation } from "react-router-dom";
-import Counter from "./Counter";
 import DeleteProduct from "./DeleteProduct";
-import UpdateProducts from "./UpdateProducts";
 
 const Product = ({
   product,

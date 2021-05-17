@@ -1,7 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridProduct from "./GridProduct";
-import Prods from "./Prods";
 
 const useStyles = makeStyles((theme) => ({
   root: {

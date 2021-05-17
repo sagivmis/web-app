@@ -2,7 +2,6 @@ import { Grid } from "@material-ui/core";
 import axios from "axios";
 import React, { useState, useContext } from "react";
 import Button from "./Button";
-import ProdsContext from "../App";
 
 function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
   // Set the initial count state to zero, 0

@@ -3,9 +3,6 @@ import { Image, StyleSheet } from "react-native";
 import Button from "./Button";
 import Product from "./Product";
 import Counter from "./Counter";
-import axios from "axios";
-import ReactImageZoom from "react-image-zoom";
-import { propNames } from "@chakra-ui/styled-system";
 
 const styles = StyleSheet.create({
   container: {

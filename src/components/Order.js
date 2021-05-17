@@ -1,4 +1,3 @@
-import { orderBy } from "lodash";
 import DeleteOrder from "./DeleteOrder";
 import OrderDetails from "./OrderDetails";
 import Price from "./Price";

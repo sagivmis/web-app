@@ -2,7 +2,6 @@ import Button from "./Button";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { BrowserRouter as Route } from "react-router-dom";
-import Logo from "./Logo";
 
 const Header = ({ title, addProduct, showAdd }) => {
   const location = useLocation();
