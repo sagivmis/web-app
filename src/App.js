@@ -201,11 +201,12 @@ function App() {
     setOrders({}); //check
   }, []);
 
-  updateOrders();
-  updateProds();
-  console.log(orders);
+  // updateOrders();
+  // updateProds();
 
+  console.log(orders);
   console.log(products);
+
   return (
     <Router>
       <div className="container">
