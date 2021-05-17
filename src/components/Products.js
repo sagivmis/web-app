@@ -1,14 +1,16 @@
 import Product from "./Product";
 
-const Products = ({
+const Products = async ({
   products,
   onDelete,
   onToggle,
   showDesc,
   updateProds,
   ProdsContext,
+  fetchProducts,
 }) => {
-  // console.log(products);
+  console.log(products);
+  await fetchProducts();
   return (
     <>
       {products.map((product) => (

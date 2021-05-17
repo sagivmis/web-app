@@ -236,6 +236,7 @@ function App() {
               {products.length > 0 ? (
                 <Products
                   products={products}
+                  fetchProducts={fetchProducts}
                   onToggle={toggleReminder}
                   onDelete={deleteProduct}
                   showDesc={toggleDescription}
