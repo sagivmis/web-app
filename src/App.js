@@ -200,9 +200,12 @@ function App() {
     fetchOrders();
     setOrders({}); //check
   }, []);
-  // console.log(orders);
 
-  // console.log(products);
+  updateOrders();
+  updateProds();
+  console.log(orders);
+
+  console.log(products);
   return (
     <Router>
       <div className="container">
