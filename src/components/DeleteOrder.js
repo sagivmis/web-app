@@ -3,10 +3,10 @@ import { FaTimes } from "react-icons/fa";
 
 const DeleteOrder = ({ id, updateOrders }) => {
   const deleteOrder = async () => {
-    await fetch(`https://fastserver-sm.herokuapp.com/orders/${id}`, {
+    await fetch(`http://localhost:8000/orders/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: { id: id },
+      // body: { id: id },
     });
     await updateOrders();
   };

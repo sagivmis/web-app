@@ -2,11 +2,10 @@ import React from "react";
 
 import { Image, StyleSheet } from "react-native";
 import logo from "./Logo.png";
-console.log(logo);
 const Logo = () => {
   return (
     <div>
-      <a href="http://localhost:3000/">
+      <a href="https://web-app-sm.herokuapp.com/">
         <img src={logo} />
       </a>
     </div>

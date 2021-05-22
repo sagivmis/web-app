@@ -1,30 +1,33 @@
+import { propNames } from "@chakra-ui/styled-system";
 import Product from "./Product";
 
 const Products = async ({
-  products,
-  onDelete,
-  onToggle,
-  showDesc,
-  updateProds,
-  ProdsContext,
-  fetchProducts,
+  // products,
+  // onDelete,
+  // onToggle,
+  // showDesc,
+  // updateProds,
+  // ProdsContext,
+  // fetchProducts,
+  ...props
 }) => {
-  console.log(products);
-  await fetchProducts();
+  // await fetchProducts();
+  console.log(props.products);
   return (
-    <>
-      {products.map((product) => (
+    <div>
+      props.products.length && (
+      {props.products.map((product) => (
         <Product
-          key={product.id}
+          key={product._id}
           product={product}
-          onDelete={onDelete}
-          onToggle={onToggle}
-          showDesc={showDesc}
-          updateProds={updateProds}
-          ProdsContext={ProdsContext}
+          onDelete={props.onDelete}
+          onToggle={props.onToggle}
+          showDesc={props.showDesc}
+          updateProds={props.updateProds}
+          ProdsContext={props.ProdsContext}
         />
       ))}
-    </>
+    </div>
   );
 };
 

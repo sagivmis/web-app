@@ -37,7 +37,7 @@ const Footer = ({
   };
 
   const _onAdd = (newOrder) => {
-    fetch("https://fastserver-sm.herokuapp.com/orders", {
+    fetch("http://localhost:8000/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newOrder),
@@ -47,35 +47,26 @@ const Footer = ({
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (false) {
-      alert("please add a product");
-      return;
-    }
-    // const ids = products.map((product) => {
-    //   product.reminder ? product : "";
-    // });
     let ids = [];
     let quantity = [];
     products.map((product) => {
       if (product.reminder) {
-        ids.push(product.id);
-        quantity.push(product.quantity);
+        ids.push(product._id);
+        quantity.push(product.quantity - 1);
       }
     });
-    console.log(`ids: ${ids}`);
     let d = new Date();
     const date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`;
 
     console.log(`date: ${date}`);
     const newOrder = {
-      id: orders.length + 1,
+      // id: orders.length + 1,
       date: date, //implemet date
       total: calcTotal(products),
       item_ids: ids,
       quantity: quantity,
     };
 
-    console.log(newOrder);
     // onAdd({ text, price, description, url, reminder });
     _onAdd(newOrder);
     updateOrders();

@@ -1,13 +1,25 @@
 import { useLocation } from "react-router-dom";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
-const NavBar = () => {
+const NavBar = ({ products }) => {
+  const resetQuantity = () => {
+    products.map((product) => {
+      product.quantity = 1;
+    });
+  };
+  const resetReminder = () => {
+    products.map((product) => {
+      product.reminder = false;
+    });
+  };
   const history = useHistory();
 
   const linkAbout = () => {
     history.push("/about");
   };
   const linkHome = () => {
+    resetReminder();
+    resetQuantity();
     history.push("/home");
   };
   const linkStats = () => {

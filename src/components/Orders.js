@@ -4,7 +4,7 @@ const Orders = ({ ...props }) => {
     <>
       {props.orders.map((order) => (
         <Order
-          key={order.id}
+          key={order._id}
           order={order}
           updateOrders={props.updateOrders}
           products={props.products}

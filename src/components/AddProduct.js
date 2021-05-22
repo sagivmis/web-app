@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 const AddProduct = ({ onAdd, updateProds, products }) => {
   const [text, setText] = useState("");
@@ -8,7 +8,7 @@ const AddProduct = ({ onAdd, updateProds, products }) => {
   const reminder = false;
 
   const _onAdd = (newProd) => {
-    fetch("https://fastserver-sm.herokuapp.com/products", {
+    fetch("http://localhost:8000/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProd),
@@ -23,7 +23,7 @@ const AddProduct = ({ onAdd, updateProds, products }) => {
       return;
     }
     const newProd = {
-      id: products.length + 1,
+      // id: products.length + 1,
       text: text,
       price: price,
       description: description,

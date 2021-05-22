@@ -16,9 +16,9 @@ const Product = ({
   return (
     <div
       className={`product ${product.reminder ? "reminder" : ""}`}
-      onDoubleClick={() => onToggle(product.id)}
-      onMouseOver={() => showDesc(product.id)}
-      onMouseOut={() => showDesc(product.id)}
+      onDoubleClick={() => onToggle(product._id)}
+      onMouseOver={() => showDesc(product._id)}
+      onMouseOut={() => showDesc(product._id)}
     >
       <h3>
         {product.text}
@@ -27,9 +27,16 @@ const Product = ({
           <UpdateProducts ProdsContext={ProdsContext} />
         )} */}
         {location.pathname === "/" && (
-          <DeleteProduct id={product.id} updateProds={updateProds} />
+          <DeleteProduct id={product._id} updateProds={updateProds} />
         )}
       </h3>
+      {location.pathname !== "/" && (
+        <div className="quantity-div">
+          <p className="quantity-centered">{`Quantity: ${
+            product.quantity - 1
+          }`}</p>
+        </div>
+      )}
       <Description product={product} showDesc={showDesc} />
     </div>
   );

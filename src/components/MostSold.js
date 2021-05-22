@@ -39,25 +39,35 @@ const MostSold = ({ orders, products }) => {
   products.map((product) => {
     orders.map((order) => {
       order.item_ids.map((item) => {
-        if (product.id === item) {
+        if (product._id === item) {
           products_sold.push(product);
         }
       });
     });
   });
   // console.log(products_sold);
-  function Item(name, id, number_sold = 0) {
+  function Item(name, _id, number_sold = 0) {
     //before first sell
     this.name = name;
-    this.id = id;
+    this._id = _id;
     this.number_sold = number_sold;
   }
   let items = [];
   products.map((product) => {
-    items.push(new Item(product.text, product.id));
+    items.push({
+      _id: product._id,
+      text: product.text,
+      number_sold: 0,
+    });
   });
   products_sold.map((sold) => {
-    items[sold.id - 1].number_sold++;
+    console.log(items[0]);
+    console.log(sold);
+    items.map((item) => {
+      if (sold._id === item._id) {
+        item.number_sold++;
+      }
+    });
   });
   items.sort((first, second) => {
     return second.number_sold - first.number_sold;
@@ -93,7 +103,7 @@ const MostSold = ({ orders, products }) => {
               <div id="transition-modal-description">
                 {items.map((item) =>
                   count++ < 3 ? (
-                    <ItemSold item={item} key={item.id} number={count} />
+                    <ItemSold item={item} key={item._id} number={count} />
                   ) : (
                     ""
                   )

@@ -1,14 +1,15 @@
 import Product from "./Product";
 import Total from "./Total";
+
 const Cart = ({ products, onDelete, onToggle, showDesc, calcTotal }) => {
   return (
     <div className="cart">
       {products.map(
         (product) =>
           product.reminder === true &&
-          product.quantity >= 1 && (
+          product.quantity >= 2 && (
             <Product
-              key={product.id}
+              key={product._id}
               product={product}
               onDelete={onDelete}
               onToggle={onToggle}

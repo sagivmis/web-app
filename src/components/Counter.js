@@ -13,7 +13,7 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
   // const { fetchProducts } = React.useContext(ProdsContext);
 
   const updateProduct = async (product) => {
-    await fetch(`https://fastserver-sm.herokuapp.com/products/${product.id}`, {
+    await fetch(`http://localhost:8000/products/${product.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -32,19 +32,15 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
   };
   // Create handleIncrement event handler
   const handleIncrement = (e) => {
-    setCount((prevCount) => prevCount + 1);
+    setCount(count + 1);
     // console.log(e.target.className.includes("plus"));
     // console.log(product);
     if (e.target.className.includes("plus")) addQuantity(product);
   };
-  const getCount = async () => {
-    const res = await fetch("http://localhost:3000/home");
-    const json = await res.text();
-    console.log(res);
-  };
+
   //Create handleDecrement event handler
   const handleDecrement = (e) => {
-    setCount((prevCount) => prevCount - 1);
+    setCount(count - 1);
     if (e.target.className.includes("minus")) lowerQuantity(product);
   };
 
@@ -59,7 +55,7 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
             classN="small-btn minus"
           />
           <Button
-            onClick={updateProduct}
+            onClick={handleIncrement}
             color="steelblue"
             text="+"
             classN="small-btn  center plus"

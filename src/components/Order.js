@@ -8,7 +8,7 @@ const Order = ({ order, updateOrders, products }) => {
       <h3 className="left-corner">{order.date}</h3>
       <p>{}</p>
       <Price price={order.total} classN="price-order" />
-      <DeleteOrder id={order.id} updateOrders={updateOrders} />
+      <DeleteOrder id={order._id} updateOrders={updateOrders} />
       <OrderDetails order={order} products={products} />
     </div>
   );

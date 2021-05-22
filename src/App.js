@@ -11,55 +11,17 @@ import Cart from "./components/Cart";
 import axios from "axios";
 import NavBar from "./components/NavBar";
 import Logo from "./components/Logo";
+import GridProduct from "./components/GridProduct";
+import Grid from "@material-ui/core/Grid";
 
 function App() {
   const [showAddProduct, setShowAddProduct] = useState(false);
-  let [_products, _setProducts] = useState([
-    {
-      id: 1,
-      text: "T-shirt",
-      price: 12,
-      description: "T-shirt",
-      showDescription: false,
-      image: true,
-      reminder: false,
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnwBh410RwBSiaCOnUjohBG-WRrZjsAtv0BzZ5s-CYFyQUUEcmAYHw03jX8Nz012Gh39LF7Pr1&usqp=CAc",
-    },
-    {
-      id: 2,
-      text: "Shoes",
-      price: 50,
-      description: "Fun shoes",
-      showDescription: false,
-      image: true,
-      reminder: false,
-      url: "https://sc04.alicdn.com/kf/HTB1rQWtXo6FK1Jjy0Foq6xHqVXaa.jpg",
-    },
-    {
-      id: 3,
-      text: "Coat",
-      price: 120,
-      description: "Beatiful",
-      showDescription: false,
-      image: true,
-      reminder: false,
-      url: "https://i5.walmartimages.com/asr/b8591192-d5ae-46d2-ae5d-48ac793bf4c1.295f980b310499033ed8a7fdc4dc3e57.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
-    },
-  ]);
-  const [_orders, set_Orders] = useState([
-    {
-      id: 1,
-      date: "2021-05-14",
-      total: 255,
-      item_ids: [1, 2, 3],
-      quantity: { 1: 1, 2: 1, 3: 1 },
-    },
-  ]);
+
   //toggle reminder
   const toggleReminder = (id) => {
     setProducts(
       products.map((product) =>
-        product.id === id
+        product._id === id
           ? { ...product, reminder: !product.reminder }
           : product
       )
@@ -69,7 +31,7 @@ function App() {
   const toggleDescription = (id) => {
     setProducts(
       products.map((product) =>
-        product.id === id
+        product._id === id
           ? { ...product, show_description: !product.show_description }
           : product
       )
@@ -79,7 +41,7 @@ function App() {
   const toggleDescriptionOrder = (id) => {
     setOrders(
       orders.map((order) =>
-        order.id === id
+        order._id === id
           ? { ...order, showDescription: !order.showDescription }
           : order
       )
@@ -87,35 +49,31 @@ function App() {
   };
 
   const lowerQuantity = (prod) => {
-    const id = prod.id;
+    const id = prod._id;
     setProducts(
       products.map((product) =>
-        product.id === id
+        product._id === id
           ? { ...product, quantity: product.quantity - 1 }
           : product
       )
     );
-    console.log(products[0].quantity);
+    // console.log(products[0].quantity);
   };
   const addQuantity = (prod) => {
-    const id = prod.id;
+    const id = prod._id;
     setProducts(
       products.map((product) =>
-        product.id === id
+        product._id === id
           ? { ...product, quantity: product.quantity + 1 }
           : product
       )
     );
-    console.log(products[0].quantity);
+    // console.log(products[0].quantity);
   };
   //Add product
   const addProduct = (product) => {
-    // const id = Math.floor(Math.random() * 10000) + 1;
-    const id = products.length + 1;
-    const newProduct = { id, ...product };
     axios
-      .post("https://fastserver-sm.herokuapp.com/products", {
-        id: id,
+      .post("http://localhost:8000/products", {
         text: product.text,
         price: product.price,
         description: product.description,
@@ -123,35 +81,34 @@ function App() {
         image: product.image,
         reminder: product.reminder,
         url: product.url,
-        quantity: product.quantity,
+        quantity: product.quantity - 1,
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    // setProducts([...products, newProduct]);
   };
 
   const calcTotal = (products) => {
     const _total = products.reduce((acc, product) => {
-      // console.log(product);
       if (product.reminder) {
-        console.log(`quantity:${product.quantity} price:${product.price}`);
-        let prod_total = product.quantity * product.price;
-        console.log(`acc: ${acc} prod_total: ${prod_total}`);
+        // console.log(`quantity:${product.quantity - 1} price:${product.price}`);
+        let prod_total = (product.quantity - 1) * product.price;
+        // console.log(`acc: ${acc} prod_total: ${prod_total}`);
         return prod_total + acc;
       } else return acc;
     }, 0);
-    console.log(_total);
+    // console.log(_total);
     return _total;
   };
+
   // delete a prod
   const deleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+    setProducts(products.filter((product) => product._id !== id));
   };
 
   //update products
   const updateProds = () => {
     axios
-      .get("https://fastserver-sm.herokuapp.com/products")
+      .get("http://localhost:8000/products")
       .then((response) => {
         setProducts(response.data.data);
       })
@@ -162,7 +119,7 @@ function App() {
 
   const updateOrders = () => {
     axios
-      .get("https://fastserver-sm.herokuapp.com/orders")
+      .get("http://localhost:8000/orders")
       .then((response) => {
         setOrders(response.data.data);
       })
@@ -177,13 +134,14 @@ function App() {
   });
   const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
-    const res = await fetch("https://fastserver-sm.herokuapp.com/products");
+    const res = await fetch("http://localhost:8000/products");
     const products = await res.json();
+    // console.log(products);
     setProducts(products.data);
   };
   useEffect(() => {
     fetchProducts();
-    setProducts({}); //check
+    // setProducts([]); //check
   }, []);
 
   const OrdersContext = React.createContext({
@@ -192,20 +150,20 @@ function App() {
   });
   const [orders, setOrders] = useState([]);
   const fetchOrders = async () => {
-    const res = await fetch("https://fastserver-sm.herokuapp.com/orders");
+    const res = await fetch("http://localhost:8000/orders");
+
+    // const res = await fetch("https://fastserver-sm.herokuapp.com/orders");
     const orders = await res.json();
+    // console.log(orders);
     setOrders(orders.data);
   };
   useEffect(() => {
     fetchOrders();
-    setOrders({}); //check
+    // setOrders({}); //check
   }, []);
 
   // updateOrders();
   // updateProds();
-
-  console.log(orders);
-  console.log(products);
 
   return (
     <Router>
@@ -214,7 +172,7 @@ function App() {
           <Logo />
         </div>
         <div className="navbar">
-          <NavBar />
+          <NavBar products={products} />
         </div>
         <Header
           title="Shop"
@@ -234,15 +192,20 @@ function App() {
                 />
               )}
               {products.length > 0 ? (
-                <Products
-                  products={products}
-                  fetchProducts={fetchProducts}
-                  onToggle={toggleReminder}
-                  onDelete={deleteProduct}
-                  showDesc={toggleDescription}
-                  updateProds={updateProds}
-                  ProdsContext={ProdsContext}
-                />
+                <Grid container spacing={1}>
+                  {products.map((product) => (
+                    <GridProduct
+                      key={product._id}
+                      product={product}
+                      onToggle={toggleReminder}
+                      showDesc={toggleDescription}
+                      onDelete={deleteProduct}
+                      addQuantity={addQuantity}
+                      lowerQuantity={lowerQuantity}
+                      updateProds={updateProds}
+                    />
+                  ))}
+                </Grid>
               ) : (
                 "No products to show"
               )}

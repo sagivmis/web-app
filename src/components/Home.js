@@ -19,7 +19,7 @@ const Home = ({ ...props }) => {
       <Grid container spacing={1}>
         {props.products.map((product) => (
           <GridProduct
-            key={product.id}
+            key={product._id}
             product={product}
             onToggle={props.onToggle}
             showDesc={props.showDesc}

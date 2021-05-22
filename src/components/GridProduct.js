@@ -3,6 +3,7 @@ import { Image, StyleSheet } from "react-native";
 import Button from "./Button";
 import Product from "./Product";
 import Counter from "./Counter";
+import { useLocation } from "react-router-dom";
 
 const styles = StyleSheet.create({
   container: {
@@ -34,17 +35,21 @@ const GridProduct = ({
     zoomWidth: 500,
     img: product.url,
   };
+
+  const location = useLocation();
   return (
     <div>
       <Grid item>
-        <Button
-          text="Add to Cart"
-          onClick={() => onToggle(product.id)}
-          color="steelblue"
-        />
+        {location.pathname === "/home" && (
+          <Button
+            text="Add to Cart"
+            onClick={() => onToggle(product._id)}
+            color="steelblue"
+          />
+        )}
         <div
-          onMouseOver={() => showDesc(product.id)}
-          onMouseOut={() => showDesc(product.id)}
+          onMouseOver={() => showDesc(product._id)}
+          onMouseOut={() => showDesc(product._id)}
         >
           <Product
             product={product}
@@ -52,6 +57,7 @@ const GridProduct = ({
             onToggle={onToggle}
             showDesc={showDesc}
             className="home-product"
+            updateProds={updateProds}
           />
           <p className="space center"></p>
           <Image
@@ -62,13 +68,15 @@ const GridProduct = ({
             }}
           />
 
-          <Counter
-            className="counter"
-            addQuantity={addQuantity}
-            product={product}
-            lowerQuantity={lowerQuantity}
-            updateProds={updateProds}
-          />
+          {location.pathname === "/home" && (
+            <Counter
+              className="counter"
+              addQuantity={addQuantity}
+              product={product}
+              lowerQuantity={lowerQuantity}
+              updateProds={updateProds}
+            />
+          )}
         </div>
       </Grid>
     </div>
