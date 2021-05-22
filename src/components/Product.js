@@ -22,7 +22,10 @@ const Product = ({
     >
       <h3>
         {product.text}
-        <Price price={product.price} />
+        {location.pathname === "/home" && <Price price={product.price} />}
+        {location.pathname === "/cart" && (
+          <Price price={product.price * (product.quantity - 1)} />
+        )}
         {/* {location.pathname === "/" && (
           <UpdateProducts ProdsContext={ProdsContext} />
         )} */}

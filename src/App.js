@@ -175,6 +175,7 @@ function App() {
           <NavBar products={products} />
         </div>
         <Header
+          products={products}
           title="Shop"
           addProduct={() => setShowAddProduct(!showAddProduct)}
           showAdd={showAddProduct}

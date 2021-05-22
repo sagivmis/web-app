@@ -3,10 +3,22 @@ import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { BrowserRouter as Route } from "react-router-dom";
 
-const Header = ({ title, addProduct, showAdd }) => {
+const Header = ({ products, title, addProduct, showAdd }) => {
   const location = useLocation();
   const history = useHistory();
+  const resetQuantity = () => {
+    products.map((product) => {
+      product.quantity = 1;
+    });
+  };
+  const resetReminder = () => {
+    products.map((product) => {
+      product.reminder = false;
+    });
+  };
   const linkBack = () => {
+    resetQuantity();
+    resetReminder();
     history.push("/home");
   };
   return (
