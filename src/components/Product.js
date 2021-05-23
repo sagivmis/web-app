@@ -54,7 +54,7 @@ const Product = ({
         </div>
       )}
 
-      <Description product={product} showDesc={showDesc} />
+      {/* <Description product={product} showDesc={showDesc} /> */}
       {location.pathname !== "/cart" && (
         <ItemDetails
           product={product}
