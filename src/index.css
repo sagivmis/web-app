@@ -148,9 +148,24 @@ body {
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  min-width: 105.781px;
-  max-width: 123.781px;
+  min-width: 125.781px;
+  max-width: 125.781px;
+  min-height: 138.781px;
+  max-height: 138.781px;
 }
+
+.product-admin {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  min-width: 105.781px;
+  max-width: 105.781px;
+
+  min-height: 95.781px;
+  max-height: 95.781px;
+}
+
 .product-cart {
   background: #f4f4f4;
   margin: 5px;
@@ -159,8 +174,18 @@ body {
   /* min-width: 145.781px; */
   max-width: 1003.781px;
   max-height: 99px;
+  min-height: 99px;
 }
-
+.order-stats {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  /* min-width: 145.781px; */
+  max-width: 1003.781px;
+  max-height: 64px;
+  min-height: 64px;
+}
 .grid {
   flex-grow: 1;
   position: relative;
@@ -333,15 +358,9 @@ body {
 .right-corner {
   display: flex;
   position: absolute;
-  right: 50px;
-  /* padding-left: 30%; */
-  /* margin-left: 170px;
-  padding-right: -20px; */
+  right: 48px;
 }
-/* .right-corner:hover {
-  color: #87b5ff;
-  transition: all 1s;
-} */
+
 .rightened {
   position: relative fixed;
   margin-left: 10%;
@@ -373,6 +392,8 @@ body {
 .price-order {
   /* margin-right: 10px; */
   margin-left: 270px;
+  align-items: center;
+  position: flex;
 }
 .hidden {
   opacity: 0;

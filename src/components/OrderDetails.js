@@ -47,6 +47,7 @@ const OrderDetails = ({ order, products }) => {
         prods.push({
           text: product.text,
           quantity: order.quantity[k],
+          _id: item,
         });
         k++;
       }
@@ -59,7 +60,7 @@ const OrderDetails = ({ order, products }) => {
           onClick={handleOpen}
           text="details"
           color="steelblue"
-          className="right-corner"
+          className="right-corner details-btn"
         />
       </div>
       <Modal
@@ -105,7 +106,7 @@ const OrderDetails = ({ order, products }) => {
                 <>
                   &nbsp;&nbsp;&nbsp;
                   {prods.map((prod) => (
-                    <ItemQuantities prod={prod} />
+                    <ItemQuantities prod={prod} key={prod._id} />
                   ))}
                 </>
               </p>

@@ -19,7 +19,9 @@ const Product = ({
     <div
       className={`product ${
         location.pathname === "/cart" ? "product-cart " : {}
-      } ${product.reminder ? "reminder" : ""}`}
+      } ${location.pathname === "/" ? "product-admin " : {}} ${
+        product.reminder ? "reminder" : ""
+      }`}
       onDoubleClick={() => onToggle(product._id)}
       onMouseOver={() => showDesc(product._id)}
       onMouseOut={() => showDesc(product._id)}

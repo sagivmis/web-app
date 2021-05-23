@@ -32,16 +32,20 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
   };
   // Create handleIncrement event handler
   const handleIncrement = (e) => {
-    setCount(count + 1);
-    // console.log(e.target.className.includes("plus"));
-    // console.log(product);
-    if (e.target.className.includes("plus")) addQuantity(product);
+    if (count < 99) {
+      setCount(count + 1);
+      // console.log(e.target.className.includes("plus"));
+      // console.log(product);
+      if (e.target.className.includes("plus")) addQuantity(product);
+    }
   };
 
   //Create handleDecrement event handler
   const handleDecrement = (e) => {
-    setCount(count - 1);
-    if (e.target.className.includes("minus")) lowerQuantity(product);
+    if (count > 0) {
+      setCount(count - 1);
+      if (e.target.className.includes("minus")) lowerQuantity(product);
+    }
   };
 
   const handleReset = (e) => {
