@@ -4,6 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Button from "./Button";
+import ItemQuantities from "./ItemQuantities";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -39,10 +40,15 @@ const OrderDetails = ({ order, products }) => {
   };
 
   let prods = [];
+  let k = 0;
   products.map((product) => {
     order.item_ids.map((item) => {
       if (product._id === item) {
-        prods.push(product.text);
+        prods.push({
+          text: product.text,
+          quantity: order.quantity[k],
+        });
+        k++;
       }
     });
   });
@@ -96,7 +102,12 @@ const OrderDetails = ({ order, products }) => {
                 </>
                 <br />
                 <b>{`Products names:`}</b>
-                <>&nbsp;&nbsp;&nbsp;{`${prods}`}</>
+                <>
+                  &nbsp;&nbsp;&nbsp;
+                  {prods.map((prod) => (
+                    <ItemQuantities prod={prod} />
+                  ))}
+                </>
               </p>
             </div>
           </div>

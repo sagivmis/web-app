@@ -148,6 +148,23 @@ body {
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  min-width: 105.781px;
+  max-width: 123.781px;
+}
+.product-cart {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  /* min-width: 145.781px; */
+  max-width: 1003.781px;
+  max-height: 99px;
+}
+
+.grid {
+  flex-grow: 1;
+  position: relative;
+  left: 2.75%;
 }
 .count {
   position: relative;

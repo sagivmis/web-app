@@ -14,6 +14,7 @@ const Cart = ({ products, onDelete, onToggle, showDesc, calcTotal }) => {
               onDelete={onDelete}
               onToggle={onToggle}
               showDesc={showDesc}
+              classN="order"
             />
           )
       )}

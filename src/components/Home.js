@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 const Home = ({ ...props }) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={"grid"}>
       <Grid container spacing={1}>
         {props.products.map((product) => (
           <GridProduct

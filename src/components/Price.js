@@ -2,9 +2,9 @@ const Price = ({ price, classN = "price", text = "" }) => {
   return (
     <div className={"centered"}>
       <p className={classN}>
-        <b className="bold">{text}</b>
+        &nbsp;<b className="bold">{text}</b>
         <br />
-        &nbsp;{price}$
+        &nbsp;&nbsp;{price}$
       </p>
     </div>
   );

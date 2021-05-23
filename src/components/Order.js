@@ -4,10 +4,10 @@ import Price from "./Price";
 
 const Order = ({ order, updateOrders, products }) => {
   return (
-    <div className={`centered product ${order.reminder ? "reminder" : ""}`}>
+    <div className={`centered order ${order.reminder ? "reminder" : ""}`}>
       <h3 className="left-corner">{order.date}</h3>
       <p>{}</p>
-      <Price price={order.total} classN="price-order" />
+      <Price price={order.total} classN="price-order" text={`   Total:`} />
       <DeleteOrder id={order._id} updateOrders={updateOrders} />
       <OrderDetails order={order} products={products} />
     </div>

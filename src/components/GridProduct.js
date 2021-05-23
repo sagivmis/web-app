@@ -69,7 +69,6 @@ const GridProduct = ({
               uri: product.url,
             }}
           />
-
           {location.pathname === "/home" && (
             <Counter
               className="counter"
