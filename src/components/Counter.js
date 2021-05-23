@@ -44,6 +44,10 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
     if (e.target.className.includes("minus")) lowerQuantity(product);
   };
 
+  const handleReset = (e) => {
+    setCount(0);
+    product.quantity = 1;
+  };
   return (
     <div>
       <Grid container justify="center">
@@ -63,7 +67,7 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
           <h5 className="count">{count}</h5>
         </div>
         <Button
-          onClick={() => setCount(0)}
+          onClick={handleReset}
           color="steelblue"
           text="Reset"
           classN="small-btn "
