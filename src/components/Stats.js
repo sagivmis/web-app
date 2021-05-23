@@ -1,4 +1,5 @@
 import MostSold from "./MostSold";
+import MostSoldQuantity from "./MostSoldQuantity";
 import Orders from "./Orders";
 import TotalOrders from "./TotalOrders";
 const Stats = ({ ...props }) => {
@@ -12,6 +13,7 @@ const Stats = ({ ...props }) => {
       />
       <TotalOrders orders={props.orders} />
       <MostSold orders={props.orders} products={props.products} />
+      {/* <MostSoldQuantity orders={props.orders} products={props.products} /> */}
     </div>
   );
 };

@@ -149,10 +149,10 @@ body {
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  min-width: 125.781px;
-  max-width: 125.781px;
-  min-height: 138.781px;
-  max-height: 138.781px;
+  min-width: 128.781px;
+  max-width: 128.781px;
+  min-height: 118.781px;
+  max-height: 118.781px;
 }
 
 .product-admin {
@@ -336,6 +336,10 @@ body {
   cursor: pointer;
   size: 1px;
 }
+.delete {
+  position: relative;
+  left: 15%;
+}
 .centered {
   /* height: 10vh; */
   display: flex;
@@ -395,6 +399,22 @@ body {
   margin-left: 270px;
   align-items: center;
   position: flex;
+}
+.i {
+  position: relative;
+  bottom: -23px;
+}
+.i-home {
+  position: relative;
+  top: -105px;
+  right: -5px;
+}
+.price-order-home {
+  /* margin-right: 10px; */
+  /* margin-left: 270px;
+  align-items: center; */
+  /* position: absolute;
+  bottom: 10%; */
 }
 .hidden {
   opacity: 0;

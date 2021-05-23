@@ -10,7 +10,9 @@ const DeleteProduct = ({ id, updateProds }) => {
     });
     await updateProds();
   };
-  return <FaTimes className="delete-prod" style={{}} onClick={deleteProd} />;
+  return (
+    <FaTimes className="delete-prod delete" style={{}} onClick={deleteProd} />
+  );
 };
 
 export default DeleteProduct;

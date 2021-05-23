@@ -2,36 +2,49 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
-import { IDAStarFinder } from "pathfinding";
-import Products from "./Products";
-const Footer = ({
-  showAdd,
-  updateProds,
-  orders,
-  products,
-  calcTotal,
-  updateOrders,
-}) => {
-  // const [day, setDay] = useState("");
-  // const [time, setTime] = useState("");
-  // const [id, setID] = useState("");
-  // const [quantity, setQuantity] = useState("");
-  // const [total, setTotal] = useState("");
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import ItemQuantities from "./ItemQuantities";
 
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
+
+const Footer = ({ updateProds, orders, products, calcTotal, updateOrders }) => {
   const history = useHistory();
 
-  const linkAbout = () => {
-    history.push("/about");
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = (e) => {
+    setOpen(true);
+    onSubmit(e);
   };
-  const linkHome = () => {
-    history.push("/home");
+
+  const handleClose = () => {
+    setOpen(false);
+    resetShowDesc();
   };
-  const linkStats = () => {
-    history.push("/stats");
+
+  const resetShowDesc = () => {
+    products.map((product) => {
+      product.show_description = false;
+    });
   };
-  const linkAdmin = () => {
-    history.push("/");
-  };
+
   const linkCart = () => {
     history.push("/cart");
   };
@@ -60,19 +73,16 @@ const Footer = ({
 
     console.log(`date: ${date}`);
     const newOrder = {
-      // id: orders.length + 1,
-      date: date, //implemet date
+      date: date,
       total: calcTotal(products),
       item_ids: ids,
       quantity: quantity,
     };
 
-    // onAdd({ text, price, description, url, reminder });
     _onAdd(newOrder);
     updateOrders();
   };
 
-  const linkBuy = () => {};
   const location = useLocation();
   return (
     <footer className="footer">
@@ -82,37 +92,49 @@ const Footer = ({
           to cart
         </p>
       )}
-      {/* {location.pathname === "/home" && (
-        <Button
-          text={"Update Products"}
-          onClick={updateProds}
-          color="#51a7ee"
-        />
-      )} */}
       {location.pathname !== "/about" && location.pathname !== "/cart" && (
         <Button text={"Cart"} onClick={linkCart} color="#51a7e0" />
       )}
       {location.pathname === "/cart" && (
-        <Button text={"Buy"} onClick={onSubmit} color="#51a7e0" />
+        <>
+          <div className="">
+            <Button
+              onClick={handleOpen}
+              text="Buy"
+              color="steelblue"
+              className="right-corner details-btn"
+            />
+          </div>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <div className={classes.paper}>
+                <h2
+                  id="transition-modal-title"
+                  className="centered sold-label"
+                >{`THANK YOU`}</h2>
+                <div className="centered">
+                  <p id="transition-modal-description">
+                    <b>{`Purchase Successful.`}</b>
+                    <>&nbsp;</>
+                    <br />
+                  </p>
+                </div>
+              </div>
+            </Fade>
+          </Modal>
+        </>
       )}
-      {/* <p></p>
-      {location.pathname !== "/about" && (
-        <Button text={"About"} onClick={linkAbout} color={"#217dbb"} />
-      )}
-
-      {location.pathname !== "/home" && (
-        <Button text="Home" onClick={linkHome} color="#6eb5e5" />
-      )}
-
-      {location.pathname !== "/" &&
-        location.pathname !== "/about" &&
-        location.pathname !== "/cart" && (
-          <Button text={"Admin"} onClick={linkAdmin} color={"#8ac4ea"} />
-        )}
-      <p></p>
-      {location.pathname !== "/about" && (
-        <Button text={"Stats"} onClick={linkStats} color={"#8ac4ea"} />
-      )} */}
       <p>Copyright &copy; 2021</p>
     </footer>
   );

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemDetails = ({ product, classN, products }) => {
+const ItemDetails = ({ product, classN = "", products }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -45,7 +45,7 @@ const ItemDetails = ({ product, classN, products }) => {
           onClick={handleOpen}
           text="i"
           color="steelblue"
-          classN={"xsmall-btn"}
+          classN={`xsmall-btn ${classN}`}
         />
       </div>
       <Modal

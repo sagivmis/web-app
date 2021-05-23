@@ -18,8 +18,8 @@ const Product = ({
   return (
     <div
       className={`product ${
-        location.pathname === "/cart" ? "product-cart " : {}
-      } ${location.pathname === "/" ? "product-admin " : {}} ${
+        location.pathname === "/cart" ? "product-cart " : ""
+      } ${location.pathname === "/" ? "product-admin " : ""} ${
         product.reminder ? "reminder" : ""
       }`}
       onDoubleClick={() => onToggle(product._id)}
@@ -53,14 +53,15 @@ const Product = ({
           }`}</p>
         </div>
       )}
-
-      {/* <Description product={product} showDesc={showDesc} /> */}
-      {location.pathname !== "/cart" && (
-        <ItemDetails
-          product={product}
-          classN={"price-order"}
-          products={products}
-        />
+      {location.pathname !== "/" && location.pathname !== "/cart" && (
+        <Description product={product} showDesc={showDesc} />
+      )}
+      {location.pathname === "/home" && (
+        <ItemDetails product={product} classN={"i-home"} products={products} />
+      )}
+      {/* <br /> */}
+      {location.pathname === "/" && (
+        <ItemDetails product={product} classN={"i"} products={products} />
       )}
     </div>
   );

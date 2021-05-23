@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MostSold = ({ orders, products }) => {
+const MostSoldQuantity = ({ orders, products }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -34,49 +34,66 @@ const MostSold = ({ orders, products }) => {
     setOpen(false);
     resetShowDesc();
   };
-
   const resetShowDesc = () => {
     products.map((product) => {
       product.show_description = false;
     });
   };
 
-  let products_sold = [];
+  let items = [];
+  let k = 0;
   products.map((product) => {
     orders.map((order) => {
+      k = 0;
       order.item_ids.map((item) => {
         if (product._id === item) {
-          products_sold.push(product);
+          items.push({
+            text: product.text,
+            number_sold: 0,
+            _id: item,
+          });
+          k++;
         }
       });
     });
   });
 
-  let items = [];
-  products.map((product) => {
-    items.push({
-      _id: product._id,
-      text: product.text,
-      number_sold: 0,
-    });
+  let final_items = [];
+
+  items.map((item) => {
+    if (!final_items.includes(item._id)) final_items.push(item);
   });
-  products_sold.map((sold) => {
-    items.map((item) => {
-      if (sold._id === item._id) {
-        item.number_sold++;
+  console.log(orders);
+  console.log(final_items);
+  console.log(items);
+  //   items.map((item) => {
+  //     items.map((second_item) => {
+  //       if (item._id === second_item._id) {
+  //       }
+  //     });
+  //   });
+  //  NEED TO INITIALIZE THE QUANTITY FIRST OF FINAL
+  final_items.map((item) => {
+    item.number_sold = 0;
+  });
+  final_items.map((item) => {
+    items.map((second_item) => {
+      if (item._id === second_item._id) {
+        item.number_sold += second_item.number_sold;
       }
     });
   });
-  items.sort((first, second) => {
+  final_items.sort((first, second) => {
     return second.number_sold - first.number_sold;
   });
   let count = 0;
+  console.log(final_items);
   return (
     <div className="modal">
       <div className="">
         <Button
           onClick={handleOpen}
-          text="Most Sold Unique"
+          text="Most Sold Items"
           color="steelblue"
           className="right-corner"
         />
@@ -96,10 +113,10 @@ const MostSold = ({ orders, products }) => {
             <h2
               id="transition-modal-title"
               className="centered sold-label"
-            >{`Most Sold Unique Items`}</h2>
+            >{`Most Sold Items`}</h2>
             <div className="centered">
               <div id="transition-modal-description">
-                {items.map((item) =>
+                {final_items.map((item) =>
                   count++ < 3 ? (
                     <ItemSold item={item} key={item._id} number={count} />
                   ) : (
@@ -116,4 +133,4 @@ const MostSold = ({ orders, products }) => {
   );
 };
 
-export default MostSold;
+export default MostSoldQuantity;
