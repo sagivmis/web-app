@@ -6,19 +6,15 @@ import { BrowserRouter as Route } from "react-router-dom";
 const Header = ({ products, title, addProduct, showAdd }) => {
   const location = useLocation();
   const history = useHistory();
-  const resetQuantity = () => {
+  const resetQuantityReminderShowDesc = () => {
     products.map((product) => {
       product.quantity = 1;
-    });
-  };
-  const resetReminder = () => {
-    products.map((product) => {
       product.reminder = false;
+      product.show_description = false;
     });
   };
   const linkBack = () => {
-    resetQuantity();
-    resetReminder();
+    resetQuantityReminderShowDesc();
     history.push("/home");
   };
   return (

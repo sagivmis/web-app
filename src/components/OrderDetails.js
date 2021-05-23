@@ -68,13 +68,27 @@ const OrderDetails = ({ order, products }) => {
             >{`Order Details`}</h2>
             <div className="centered">
               <p id="transition-modal-description">
-                <p>{`Order id: ${order._id}`}</p>
-                {/* <br /> */}
-                <p>{`Total price: ${order.total}$`}</p>
-                {/* <br /> */}
-                <p>{`Item IDs: [${order.item_ids}]`}</p>
-                {/* <br /> */}
-                <p>{`Products names: ${prods}`}</p>
+                <b>{`Order id:`}</b>
+                <>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;{`${order._id}`}
+                </>
+                <br />
+                <b>{`Total price:`}</b>
+                <>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;{`${order.total}$`}
+                </>
+                <br />
+                <b>{`Item IDs:`}</b>
+                <>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {`[${order.item_ids}]`}
+                </>
+                <br />
+                <b>{`Products names:`}</b>
+                <>&nbsp;&nbsp;&nbsp;{`${prods}`}</>
               </p>
             </div>
           </div>

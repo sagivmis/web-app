@@ -12,7 +12,6 @@ const Products = async ({
   ...props
 }) => {
   // await fetchProducts();
-  console.log(props.products);
   return (
     <div>
       props.products.length && (

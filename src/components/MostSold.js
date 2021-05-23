@@ -61,8 +61,6 @@ const MostSold = ({ orders, products }) => {
     });
   });
   products_sold.map((sold) => {
-    console.log(items[0]);
-    console.log(sold);
     items.map((item) => {
       if (sold._id === item._id) {
         item.number_sold++;

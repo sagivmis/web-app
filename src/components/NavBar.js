@@ -12,14 +12,20 @@ const NavBar = ({ products }) => {
       product.reminder = false;
     });
   };
+  const resetQuantityReminderShowDesc = () => {
+    products.map((product) => {
+      product.quantity = 1;
+      product.reminder = false;
+      product.show_description = false;
+    });
+  };
   const history = useHistory();
 
   const linkAbout = () => {
     history.push("/about");
   };
   const linkHome = () => {
-    resetReminder();
-    resetQuantity();
+    resetQuantityReminderShowDesc();
     history.push("/home");
   };
   const linkStats = () => {
