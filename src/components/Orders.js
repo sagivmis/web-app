@@ -1,7 +1,7 @@
 import Order from "./Order";
 const Orders = ({ ...props }) => {
   return (
-    <>
+    <div className="container-orders">
       {props.orders.map((order) => (
         <Order
           key={order._id}
@@ -11,7 +11,7 @@ const Orders = ({ ...props }) => {
         />
       ))}
       <div className="total-orders"></div>
-    </>
+    </div>
   );
 };
 

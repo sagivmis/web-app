@@ -41,10 +41,63 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 600px;
-  /* border: 1px solid steelblue; */
+  /* border: 4px solid steelblue; */
   padding: 30px;
   border-radius: 5px;
 }
+.container-orders {
+  position: relative;
+  max-width: 750px;
+  margin: 30px auto;
+  overflow: auto;
+  /* min-height: 362px;
+  max-height: 362px; */
+  /* min-width: 720px;
+  max-width: 720px; */
+  /* border: 4px solid steelblue; */
+  padding: 10px;
+  border-radius: 5px;
+}
+.right-corner {
+  /* right: 150px; */
+  position: absolute;
+  right: 70px;
+  margin-top: -31px;
+
+  /* top: 1%; */
+}
+.right-corner-delete {
+  display: flex;
+  /* right: 150px; */
+  right: 25px;
+  margin-top: -31px;
+  position: absolute;
+}
+
+.right-corner-delete:hover {
+  /* box-shadow: #f02e2e66 -5px 10px, rgba(240, 46, 46, 0.3) -10px 0px,
+    rgba(240, 46, 46, 0.2) 5px -9px, rgba(240, 46, 46, 0.2) -9px -5px,
+    rgba(240, 46, 46, 0.2) 8px 5px; */
+  animation-name: delete;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  /* transition: ease-in all 1s; */
+}
+
+@keyframes delete {
+  from {
+    box-shadow: #f02e2e66 -35px 20px, rgba(240, 46, 46, 0.3) -20px 30px,
+      rgba(240, 46, 46, 0.2) 35px -39px, rgba(240, 46, 46, 0.2) -29px -25px,
+      rgba(240, 46, 46, 0.2) 38px 35px;
+  }
+  to {
+    box-shadow: #f02e2e66 -5px 10px, rgba(240, 46, 46, 0.3) -10px 0px,
+      rgba(240, 46, 46, 0.2) 5px -9px, rgba(240, 46, 46, 0.2) -9px -5px,
+      rgba(240, 46, 46, 0.2) 8px 5px;
+  }
+}
+
 .prod-name {
   /* position: absolute;
   left: 28%; */
@@ -360,12 +413,11 @@ body {
 .sold-label {
   margin-bottom: 20px;
 }
-.right-corner {
-  display: flex;
-  position: absolute;
-  right: 48px;
-}
 
+.details-btn {
+  /* display: none; */
+  /* position: fixed; */
+}
 .rightened {
   position: relative fixed;
   margin-left: 10%;

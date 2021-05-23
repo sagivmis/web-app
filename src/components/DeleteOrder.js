@@ -11,7 +11,7 @@ const DeleteOrder = ({ id, updateOrders }) => {
     await updateOrders();
   };
   return (
-    <div className="right-corner">
+    <div className="right-corner-delete">
       <FaTimes className="delete-prod " style={{}} onClick={deleteOrder} />
     </div>
   );

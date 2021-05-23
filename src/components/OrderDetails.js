@@ -56,12 +56,12 @@ const OrderDetails = ({ order, products }) => {
   });
   return (
     <div className="modal">
-      <div className="">
+      <div className="right-corner">
         <Button
           onClick={handleOpen}
           text="details"
           color="steelblue"
-          className="right-corner details-btn"
+          className="details-btn"
         />
       </div>
       <Modal
