@@ -5,6 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Button from "./Button";
 import ItemQuantities from "./ItemQuantities";
+import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -92,7 +93,14 @@ const OrderDetails = ({ order, products }) => {
                 <b>{`Total price:`}</b>
                 <>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;{`${order.total}$`}
+                  &nbsp;
+                  {/* {`${order.total}$`} */}
+                  <NumberFormat
+                    value={order.total}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"$ "}
+                  />
                 </>
                 <br />
                 <b>{`Item IDs:`}</b>

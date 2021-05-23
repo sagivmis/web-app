@@ -1,4 +1,5 @@
 import React from "react";
+import NumberFormat from "react-number-format";
 
 const TotalOrders = ({ orders }) => {
   const calcTotal = (orders) => {
@@ -10,7 +11,14 @@ const TotalOrders = ({ orders }) => {
   return (
     <div className="hovered">
       <h1 className="rightened">TOTAL:</h1>
-      <p className="rightened total-int">{calcTotal(orders)}$</p>
+      <p className="rightened total-int">
+        <NumberFormat
+          value={calcTotal(orders)}
+          displayType={"text"}
+          thousandSeparator={true}
+          prefix={"$"}
+        />
+      </p>
     </div>
   );
 };

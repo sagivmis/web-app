@@ -4,6 +4,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Button from "./Button";
 import React from "react";
+import NumberFormat from "react-number-format";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -73,8 +74,14 @@ const ItemDetails = ({ product, classN = "", products }) => {
                 <br />
                 <b>{`Price: `}</b>
                 <>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  {` ${product.price}$`}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <NumberFormat
+                    value={product.price}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"$   "}
+                  />
+                  {/* {` ${product.price}$`} */}
                 </>
                 <br />
                 <b>{`Description: `}</b>
