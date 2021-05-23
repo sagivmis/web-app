@@ -25,7 +25,14 @@ const Product = ({
         {product.text}
         {location.pathname === "/home" && <Price price={product.price} />}
         {location.pathname === "/cart" && (
-          <Price price={product.price * (product.quantity - 1)} />
+          <Price price={product.price} text={"Price:"} />
+        )}
+
+        {location.pathname === "/cart" && (
+          <Price
+            price={product.price * (product.quantity - 1)}
+            text={"Total :"}
+          />
         )}
         {/* {location.pathname === "/" && (
           <UpdateProducts ProdsContext={ProdsContext} />
@@ -43,7 +50,9 @@ const Product = ({
       )}
 
       <Description product={product} showDesc={showDesc} />
-      <ItemDetails product={product} classN={"price-order"} />
+      {location.pathname !== "/cart" && (
+        <ItemDetails product={product} classN={"price-order"} />
+      )}
     </div>
   );
 };

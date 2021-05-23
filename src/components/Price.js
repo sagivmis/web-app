@@ -1,7 +1,11 @@
-const Price = ({ price, classN = "price" }) => {
+const Price = ({ price, classN = "price", text = "" }) => {
   return (
-    <div>
-      <p className={classN}>{price}$</p>
+    <div className={"centered"}>
+      <p className={classN}>
+        {text}
+        <br />
+        &nbsp;{price}$
+      </p>
     </div>
   );
 };
