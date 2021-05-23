@@ -31,7 +31,7 @@ const Product = ({
         {location.pathname === "/cart" && (
           <Price
             price={product.price * (product.quantity - 1)}
-            text={"Total :"}
+            text={"Total:"}
           />
         )}
         {/* {location.pathname === "/" && (
