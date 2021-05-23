@@ -32,7 +32,15 @@ const MostSold = ({ orders, products }) => {
 
   const handleClose = () => {
     setOpen(false);
+    resetShowDesc();
   };
+
+  const resetShowDesc = () => {
+    products.map((product) => {
+      product.show_description = false;
+    });
+  };
+
   //   console.log(orders);
   //   console.log(products);
   let products_sold = [];

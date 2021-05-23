@@ -28,6 +28,7 @@ const GridProduct = ({
   addQuantity,
   lowerQuantity,
   updateProds,
+  products,
 }) => {
   let props = {
     width: "inherit",
@@ -58,6 +59,7 @@ const GridProduct = ({
             showDesc={showDesc}
             className="home-product"
             updateProds={updateProds}
+            products={products}
           />
           <p className="space center"></p>
           <Image

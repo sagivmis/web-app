@@ -162,9 +162,6 @@ function App() {
     // setOrders({}); //check
   }, []);
 
-  // updateOrders();
-  // updateProds();
-
   return (
     <Router>
       <div className="container">
@@ -204,6 +201,7 @@ function App() {
                       addQuantity={addQuantity}
                       lowerQuantity={lowerQuantity}
                       updateProds={updateProds}
+                      products={products}
                     />
                   ))}
                 </Grid>

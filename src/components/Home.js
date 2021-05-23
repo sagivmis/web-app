@@ -31,6 +31,7 @@ const Home = ({ ...props }) => {
             addQuantity={props.addQuantity}
             lowerQuantity={props.lowerQuantity}
             updateProds={props.updateProds}
+            products={props.products}
           />
         ))}
       </Grid>

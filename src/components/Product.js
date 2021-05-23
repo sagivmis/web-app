@@ -12,6 +12,7 @@ const Product = ({
   editProduct,
   updateProds,
   ProdsContext,
+  products,
 }) => {
   const location = useLocation();
   return (
@@ -51,7 +52,11 @@ const Product = ({
 
       <Description product={product} showDesc={showDesc} />
       {location.pathname !== "/cart" && (
-        <ItemDetails product={product} classN={"price-order"} />
+        <ItemDetails
+          product={product}
+          classN={"price-order"}
+          products={products}
+        />
       )}
     </div>
   );

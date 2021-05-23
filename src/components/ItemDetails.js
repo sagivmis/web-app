@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ItemDetails = ({ product, classN }) => {
+const ItemDetails = ({ product, classN, products }) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -30,8 +30,14 @@ const ItemDetails = ({ product, classN }) => {
 
   const handleClose = () => {
     setOpen(false);
+    resetShowDesc();
   };
 
+  const resetShowDesc = () => {
+    products.map((product) => {
+      product.show_description = false;
+    });
+  };
   return (
     <div className="rightened modal-right">
       <div className="">

@@ -29,7 +29,15 @@ const OrderDetails = ({ order, products }) => {
 
   const handleClose = () => {
     setOpen(false);
+    resetShowDesc();
   };
+
+  const resetShowDesc = () => {
+    products.map((product) => {
+      product.show_description = false;
+    });
+  };
+
   let prods = [];
   products.map((product) => {
     order.item_ids.map((item) => {
