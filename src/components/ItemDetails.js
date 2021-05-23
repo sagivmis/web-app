@@ -1,9 +1,9 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Button from "./Button";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -19,8 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OrderDetails = ({ order, products }) => {
+const ItemDetails = ({ product, classN }) => {
   const classes = useStyles();
+
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -30,22 +31,15 @@ const OrderDetails = ({ order, products }) => {
   const handleClose = () => {
     setOpen(false);
   };
-  let prods = [];
-  products.map((product) => {
-    order.item_ids.map((item) => {
-      if (product._id === item) {
-        prods.push(product.text);
-      }
-    });
-  });
+
   return (
-    <div className="modal">
+    <div className="rightened modal-right">
       <div className="">
         <Button
           onClick={handleOpen}
-          text="details"
+          text="i"
           color="steelblue"
-          className="right-corner"
+          classN={"xsmall-btn"}
         />
       </div>
       <Modal
@@ -65,16 +59,21 @@ const OrderDetails = ({ order, products }) => {
             <h2
               id="transition-modal-title"
               className="centered sold-label"
-            >{`Order Details`}</h2>
+            >{`${product.text} Details`}</h2>
             <div className="centered">
               <p id="transition-modal-description">
-                <p>{`Order id: ${order._id}`}</p>
-                {/* <br /> */}
-                <p>{`Total price: ${order.total}$`}</p>
-                {/* <br /> */}
-                <p>{`Item IDs: [${order.item_ids}]`}</p>
-                {/* <br /> */}
-                <p>{`Products names: ${prods}`}</p>
+                <b>{`Product id: `}</b>
+                <>&nbsp;&nbsp;&nbsp;{` ${product._id}`}</>
+                <br />
+                <b>{`Price: `}</b>
+                <>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {` ${product.price}$`}
+                </>
+                <br />
+                <b>{`Description: `}</b>
+                <>&nbsp;{` ${product.description}`}</>
+                <br />
               </p>
             </div>
           </div>
@@ -84,4 +83,4 @@ const OrderDetails = ({ order, products }) => {
   );
 };
 
-export default OrderDetails;
+export default ItemDetails;

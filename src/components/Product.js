@@ -2,6 +2,7 @@ import Price from "./Price";
 import Description from "./Description";
 import { useLocation } from "react-router-dom";
 import DeleteProduct from "./DeleteProduct";
+import ItemDetails from "./ItemDetails";
 
 const Product = ({
   product,
@@ -40,7 +41,9 @@ const Product = ({
           }`}</p>
         </div>
       )}
+
       <Description product={product} showDesc={showDesc} />
+      <ItemDetails product={product} classN={"price-order"} />
     </div>
   );
 };

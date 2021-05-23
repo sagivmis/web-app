@@ -109,6 +109,34 @@ body {
   transform: scale(0.78);
 }
 
+.xsmall-btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 1px 6.8px;
+  margin: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 11px;
+  color: #fff;
+  font-family: inherit;
+  filter: brightness(1);
+  /* font-family: "Lobster", cursive; */
+}
+.xsmall-btn:hover {
+  filter: brightness(1.18);
+  transition: 0.25s;
+}
+.xsmall-btn:focus {
+  outline: none;
+}
+
+.xsmall-btn:active {
+  transform: scale(0.78);
+}
+
 .btn-block {
   display: block;
   width: 100%;
@@ -347,4 +375,9 @@ body {
 }
 .logo {
   margin-bottom: 15px;
+}
+.modal-right {
+  margin-left: 90%;
+  /* left: 1000px; */
+  /* size: 10px; */
 }
