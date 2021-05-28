@@ -13,6 +13,7 @@ ReactJS based.
 ### Tabs list
 
 - [Admin](#admin)
+    1. [Add Product](#add-product)
 - [Stats](#stats)
     1. [Order-Details](#order-details)
     2. [Most-Sold](#most-sold)
@@ -24,6 +25,9 @@ ReactJS based.
 
 ##### Admin
 ![Admin](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Adminn.png/689px-Adminn.png)
+
+- ###### Add Product
+![Add](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Addproduct.png/518px-Addproduct.png)
 
 ##### Stats
 ![Stats](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Stats.png/704px-Stats.png)
