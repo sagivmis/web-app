@@ -1,4 +1,3 @@
-
 # 'Swish'
 ## React shop
 ### Table of contents
@@ -13,16 +12,14 @@ ReactJS based.
 
 ### Tabs list
 
--- [Admin](#admin)
--- [Stats](#stats)
-- [Order-Details](#order-details)
-- [Most-Sold](#most-sold)
-
--- [Home](#home)
-- [Item-Details](#item-Details)
-
--- [Cart](#cart)
-- [Purchase](#purchase)
+- [Admin](#admin)
+- [Stats](#stats)
+    1. [Order-Details](#order-details)
+    2. [Most-Sold](#most-sold)
+- [Home](#home)
+    1. [Item-Details](#item-Details)
+- [Cart](#cart)
+    1. [Purchase](#purchase)
 
 
 ##### Admin
