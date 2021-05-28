@@ -49,4 +49,3 @@ ReactJS based.
 
 MIT
 
-**Free Software, Hell Yeah!**
