@@ -27,26 +27,28 @@ ReactJS based.
 ![Admins](./public/images/admin.png)
 
 - ###### Add Product
-![Add](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Addproduct.png/518px-Addproduct.png)
+![Add](./public/images/addproduct.png)
 
 ##### Stats
-![Stats](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Stats.png/704px-Stats.png)
+![Stats](./public/images/stats.png)
 
 - ###### Order-Details
-![Order-Details](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Orderdetails.png/710px-Orderdetails.png)
+![Order-Details](./public/images/orderdetails.png) 
 
 - ###### Most-Sold
-![Most-Sold](https://upload.wikimedia.org/wikipedia/commons/2/2a/Mostsold.png)
+![Most-Sold](./public/images/mostsold.png)
 
 ##### Home
-![Home](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Homee.png/662px-Homee.png)
+![Home](./public/images/home.png)
+
 - ###### Item-Details
-![Item-Details](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Itemdetails.png/671px-Itemdetails.png)
+![Item-Details](./public/images/itemdetails.png)
 
 ##### Cart
-![Cart](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Cartt.png/663px-Cartt.png)
+![Cart](./public/images/cart.png)
+
 - ###### Purchase
-![Purchase](https://upload.wikimedia.org/wikipedia/commons/f/f1/Purchase.png)
+![Purchase](./public/images/purchase.png)
 
 
 ## License
