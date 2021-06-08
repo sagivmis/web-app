@@ -3,6 +3,7 @@
 ### Table of contents
 * [General Info](#general-info)
 * [Tabs list](#tabs-list)
+* [Screenshots](#screenshots)
 * [License](#license)
 
 ### General Info
@@ -10,7 +11,7 @@
 Swish is a mobile-ready shop, offline-storage compatible,
 ReactJS based.
 
-### Tabs list
+### Tabs list (Click for Screenshots)
 
 - [Admin](#admin)
     1. [Add Product](#add-product)
@@ -22,7 +23,7 @@ ReactJS based.
 - [Cart](#cart)
     1. [Purchase](#purchase)
 
-
+## Screenshots
 ##### Admin
 ![Admins](./public/images/admin.png)
 
