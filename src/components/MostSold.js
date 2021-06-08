@@ -5,6 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Button from "./Button";
 import ItemSold from "./ItemSold";
+import BarChart from "./BarChart";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -70,7 +71,9 @@ const MostSold = ({ orders, products }) => {
   items.sort((first, second) => {
     return second.number_sold - first.number_sold;
   });
+
   let count = 0;
+
   return (
     <div className="modal">
       <div className="">
@@ -106,6 +109,7 @@ const MostSold = ({ orders, products }) => {
                     ""
                   )
                 )}
+                {/* <BarChart items={items.slice(0, 3)} /> */}
                 <br></br>
               </div>
             </div>

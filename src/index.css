@@ -75,9 +75,6 @@ body {
 }
 
 .right-corner-delete:hover {
-  /* box-shadow: #f02e2e66 -5px 10px, rgba(240, 46, 46, 0.3) -10px 0px,
-    rgba(240, 46, 46, 0.2) 5px -9px, rgba(240, 46, 46, 0.2) -9px -5px,
-    rgba(240, 46, 46, 0.2) 8px 5px; */
   animation-name: delete;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -250,7 +247,7 @@ body {
   left: 45%;
 }
 .product.reminder {
-  border-left: 5px solid steelblue;
+  border-left: 4px solid steelblue;
 }
 
 .product h3 {
@@ -393,10 +390,16 @@ body {
   position: relative;
   left: 15%;
 }
+.delete:hover {
+  animation-name: delete;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 .centered {
   /* height: 10vh; */
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   align-items: center;
 }
 .quantity-div {

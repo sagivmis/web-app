@@ -76,6 +76,8 @@ const GridProduct = ({
               product={product}
               lowerQuantity={lowerQuantity}
               updateProds={updateProds}
+              onToggle={onToggle}
+              products={products}
             />
           )}
         </div>

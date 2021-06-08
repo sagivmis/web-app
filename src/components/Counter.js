@@ -3,14 +3,9 @@ import axios from "axios";
 import React, { useState, useContext } from "react";
 import Button from "./Button";
 
-function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
+function Counter({ lowerQuantity, addQuantity, product }) {
   // Set the initial count state to zero, 0
   const [count, setCount] = useState(0);
-
-  const addQuantityy = async (product) => {};
-
-  const [prod, setProd] = useState(product);
-  // const { fetchProducts } = React.useContext(ProdsContext);
 
   const updateProduct = async (product) => {
     await fetch(`http://localhost:8000/products/${product.id}`, {
@@ -27,16 +22,16 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
         quantity: product.quantity + 1,
       }),
     });
-    // onClose();
-    // await fetchProducts();
   };
+
   // Create handleIncrement event handler
   const handleIncrement = (e) => {
     if (count < 99) {
       setCount(count + 1);
-      // console.log(e.target.className.includes("plus"));
-      // console.log(product);
-      if (e.target.className.includes("plus")) addQuantity(product);
+      if (e.target.className.includes("plus")) {
+        product.reminder = true;
+        addQuantity(product);
+      }
     }
   };
 
@@ -44,6 +39,9 @@ function Counter({ lowerQuantity, addQuantity, product, updateProds }) {
   const handleDecrement = (e) => {
     if (count > 0) {
       setCount(count - 1);
+      if (count === 1) {
+        product.reminder = false;
+      }
       if (e.target.className.includes("minus")) lowerQuantity(product);
     }
   };

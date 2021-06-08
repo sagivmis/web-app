@@ -37,16 +37,6 @@ function App() {
       )
     );
   };
-  //toggle description
-  const toggleDescriptionOrder = (id) => {
-    setOrders(
-      orders.map((order) =>
-        order._id === id
-          ? { ...order, showDescription: !order.showDescription }
-          : order
-      )
-    );
-  };
 
   const lowerQuantity = (prod) => {
     const id = prod._id;
@@ -68,8 +58,8 @@ function App() {
           : product
       )
     );
-    // console.log(products[0].quantity);
   };
+
   //Add product
   const addProduct = (product) => {
     axios
@@ -90,13 +80,10 @@ function App() {
   const calcTotal = (products) => {
     const _total = products.reduce((acc, product) => {
       if (product.reminder) {
-        // console.log(`quantity:${product.quantity - 1} price:${product.price}`);
         let prod_total = (product.quantity - 1) * product.price;
-        // console.log(`acc: ${acc} prod_total: ${prod_total}`);
         return prod_total + acc;
       } else return acc;
     }, 0);
-    // console.log(_total);
     return _total;
   };
 
@@ -136,12 +123,10 @@ function App() {
   const fetchProducts = async () => {
     const res = await fetch("http://localhost:8000/products");
     const products = await res.json();
-    // console.log(products);
     setProducts(products.data);
   };
   useEffect(() => {
     fetchProducts();
-    // setProducts([]); //check
   }, []);
 
   const OrdersContext = React.createContext({
@@ -154,12 +139,10 @@ function App() {
 
     // const res = await fetch("https://fastserver-sm.herokuapp.com/orders");
     const orders = await res.json();
-    // console.log(orders);
     setOrders(orders.data);
   };
   useEffect(() => {
     fetchOrders();
-    // setOrders({}); //check
   }, []);
 
   return (
@@ -180,7 +163,7 @@ function App() {
         <Route
           path="/"
           exact
-          render={(props) => (
+          render={() => (
             <>
               {showAddProduct && (
                 <AddProduct
@@ -212,11 +195,10 @@ function App() {
           )}
         />
         <Route path="/about" component={About} />
-        {/* <Route exact path="/stats" component={Stats} /> */}
         <Route
           exact
           path="/cart"
-          render={(props) => (
+          render={() => (
             <Cart
               products={products}
               onToggle={toggleReminder}
@@ -230,7 +212,7 @@ function App() {
         <Route
           exact
           path="/stats"
-          render={(props) => (
+          render={() => (
             <Stats
               orders={orders}
               updateOrders={updateOrders}
@@ -241,7 +223,7 @@ function App() {
         <Route
           exact
           path="/home"
-          render={(props) => (
+          render={() => (
             <Home
               products={products}
               onToggle={toggleReminder}

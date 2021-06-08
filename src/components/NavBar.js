@@ -2,16 +2,6 @@ import { useLocation } from "react-router-dom";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
 const NavBar = ({ products }) => {
-  const resetQuantity = () => {
-    products.map((product) => {
-      product.quantity = 1;
-    });
-  };
-  const resetReminder = () => {
-    products.map((product) => {
-      product.reminder = false;
-    });
-  };
   const resetQuantityReminderShowDesc = () => {
     products.map((product) => {
       product.quantity = 1;
@@ -37,17 +27,9 @@ const NavBar = ({ products }) => {
   const linkCart = () => {
     history.push("/cart");
   };
-  const linkBuy = () => {};
   const location = useLocation();
   return (
     <div>
-      {/* {location.pathname !== "/about" && location.pathname !== "/cart" && (
-        <Button text={"Cart"} onClick={linkCart} color="#51a7e0" />
-      )} */}
-      {/* {location.pathname === "/cart" && (
-        <Button text={"Buy"} onClick={linkBuy} color="#51a7e0" />
-      )} */}
-      {/* <p></p> */}
       {location.pathname !== "/about" && (
         <Button text={"About"} onClick={linkAbout} color={"#217dbb"} />
       )}

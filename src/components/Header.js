@@ -19,7 +19,6 @@ const Header = ({ products, title, addProduct, showAdd }) => {
   };
   return (
     <header className="header">
-      {/* <Logo /> */}
       {location.pathname === "/cart" && <h1 className="home-label">CART</h1>}
       {location.pathname === "/home" && (
         <h1 className="cart home-label">HOME</h1>
