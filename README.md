@@ -24,7 +24,6 @@ ReactJS based.
 
 
 ##### Admin
-![Admin](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Adminn.png/689px-Adminn.png)
 ![Admins](./public/images/admin.png)
 
 - ###### Add Product
